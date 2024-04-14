@@ -1,11 +1,20 @@
 import { faker } from "@faker-js/faker";
 import {
+  AddressBook,
+  Book,
+  Bookmark,
+  Books,
+  Chat,
   ChatCircleDots,
   Gear,
   GearSix,
+  Pen,
+  PenNib,
+  PencilCircle,
   Phone,
   SignOut,
   User,
+  UserCirclePlus,
   Users,
 } from "phosphor-react";
 
@@ -27,16 +36,21 @@ const Profile_Menu = [
 const Nav_Buttons = [
   {
     index: 0,
-    icon: <ChatCircleDots />,
+    icon: <Chat />,
   },
   {
     index: 1,
-    icon: <Users />,
+    icon: <AddressBook />,
   },
   {
     index: 2,
-    icon: <Phone />,
+    icon: <UserCirclePlus />,
   },
+  {
+    index: 3,
+    icon: <Pen />,
+  },
+  
 ];
 
 const Nav_Setting = [
