@@ -1,4 +1,4 @@
-import { Avatar, Box, Divider, IconButton, Stack } from "@mui/material"
+import { Avatar, Box, Divider, IconButton, Stack, Switch } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
@@ -18,7 +18,6 @@ const DashboardLayout = () => {
   return (
     <>
       <Box
-        borderRadius={5}
         padding={2}
         sx={{
           backgroundColor: theme.palette.background.paper,
@@ -79,7 +78,8 @@ const DashboardLayout = () => {
           </IconButton>
           </Stack>
           </Stack>
-          <Stack>
+          <Stack spacing={4} alignItems={"center"}>
+            <Switch defaultChecked />
             <Avatar src={faker.image.avatar()}/>
 
           </Stack>
