@@ -1,15 +1,15 @@
 import { Box, Divider, IconButton, Stack } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-
 import Logo from "../../assets/Images/send-it-logo.png";
 import { Nav_Buttons } from "../../data";
-import { Gear, GearSix } from "phosphor-react";
 
 const DashboardLayout = () => {
 
   const theme = useTheme();
+
+  const [selected, setSelected] = useState(0);
 
   console.log(theme);
 
@@ -37,12 +37,11 @@ const DashboardLayout = () => {
           <Stack sx={{ width: "max-content" }} direction="column" alignItems="center" spacing={3}>
             {Nav_Buttons.map((el) => <IconButton key={el.index}>
               {el.icon}
-            </IconButton>)}
-            <Divider />
-            <IconButton>
-              <GearSix />
             </IconButton>
+          )}
+          <Divider />  
           </Stack>
+          
         </Stack>
       </Box>
       <Outlet />
