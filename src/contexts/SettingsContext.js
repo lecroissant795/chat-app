@@ -65,7 +65,7 @@ const SettingsProvider = ({ children }) => {
   const onToggleMode = () => {
     setSettings({
       ...settings,
-      themeMode: settings.themeMode === "light" ? "dark" : "light",
+      themeMode: settings.themeMode === "dark" ? "light" : "dark",
     });
   };
 
