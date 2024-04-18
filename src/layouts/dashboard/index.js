@@ -1,5 +1,5 @@
-import { Avatar, Box, Divider, IconButton, Stack, Switch, colors } from "@mui/material"
-import { useTheme, styled } from "@mui/material/styles"
+import { Avatar, Box, Divider, IconButton, Stack, Switch, colors } from "@mui/material";
+import { useTheme, styled } from "@mui/material/styles";
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Logo from "../../assets/Images/send-it-logo.png";
@@ -71,10 +71,11 @@ const DashboardLayout = () => {
       <Box
         padding={2}
         sx={{
+          // position: 'absolute',
           backgroundColor: theme.palette.primary.light,
           boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
           height: "100vh",
-          width: "80px"
+          width: "90px",
         }}>
         <Stack
           direction="column"
