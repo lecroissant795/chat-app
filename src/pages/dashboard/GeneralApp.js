@@ -7,7 +7,9 @@ const GeneralApp = () => {
 
   return (
     <>
-      
+      <Stack direction="row" sx={{ width: "100%" }}>
+
+      </Stack>
       <Chats />
     </>
   );

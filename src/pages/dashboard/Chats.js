@@ -40,13 +40,15 @@ const ChatElement = () => {
         <Box
             sx={{
                 width: "100%",
-                height: 60,
+                height: 70,
                 borderRadius: 1,
                 backgroundColor: "white",
             }}
             p={2}
         >
-            <Stack direction="row" alignItems="center" justifyContent="space-between">
+            <Stack direction="row"
+                alignItems={"center"}
+                justifyContent={"space-between"}>
                 <Stack direction="row" spacing={2}>
                     <StyledBadge
                         overlap="circular"
@@ -64,6 +66,15 @@ const ChatElement = () => {
                         </Typography>
                     </Stack>
 
+
+                </Stack>
+                <Stack spacing={2} alignItems="center">
+                    <Typography sx={{ fontWeight: 600 }} variant="caption">
+                        9:30
+                    </Typography>
+                    <Badge color='primary' badgeContent={2} sx={{}}>
+
+                    </Badge>
                 </Stack>
 
             </Stack>
@@ -108,7 +119,7 @@ const Chats = () => {
         <Box sx={{
             position: "relative",
             height: "100%",
-            width: 380,
+            width: 320,
             backgroundColor: "#FFE6E6",
             boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)"
         }}>
