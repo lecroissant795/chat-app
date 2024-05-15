@@ -67,12 +67,12 @@ const DashboardLayout = () => {
   const { onToggleMode } = useSettings();
 
   return (
-    <>
+    <Stack direction="row">
       <Box
         padding={2}
         sx={{
           // position: 'absolute',
-          backgroundColor: theme.palette.primary.light,
+          backgroundColor: theme.palette.mode === 'light' ? '#F6C7C7' : '#515F7E',
           boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
           height: "100vh",
           width: "90px",
@@ -105,12 +105,12 @@ const DashboardLayout = () => {
                   <Box
                     p={1}
                     sx={{
-                      backgroundColor: theme.palette.primary.lighter,
+                      backgroundColor: theme.palette.mode === 'light' ?  theme.palette.primary.lighter : '#394769',
                       borderRadius: 1.5
                     }}
                   >
                     <IconButton
-                      sx={{ width: "max-content", color: "black" }}
+                      sx={{ width: "max-content", color: theme.palette.mode === 'light' ? 'black' : 'white'  }}
                       key={el.index}
                     >
                       {el.icon}
@@ -118,7 +118,7 @@ const DashboardLayout = () => {
                   </Box>
                   : <IconButton
                     onClick={() => setSelected(el.index)}
-                    sx={{ width: "max-content", color: "black" }}
+                    sx={{ width: "max-content", color: theme.palette.mode === 'light' ? 'black' : 'white' }}
                     key={el.index}
                   >
                     {el.icon}
@@ -126,7 +126,7 @@ const DashboardLayout = () => {
 
               ))}
               <Divider sx={{ width: "48px" }} />
-              <IconButton sx={{ width: "max-content", color: "black" }} >
+              <IconButton sx={{ width: "max-content", color: theme.palette.mode === 'light' ? 'black' : 'white' }} >
                 <Gear />
               </IconButton>
             </Stack>
@@ -142,7 +142,7 @@ const DashboardLayout = () => {
         </Stack>
       </Box>
       <Outlet />
-    </>
+    </Stack>
   );
 };
 
