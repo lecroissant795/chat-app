@@ -44,8 +44,6 @@ const ChatElement = ({ id, name, img, msg, time, unread, online }) => {
             sx={{
                 width: "100%",
                 borderRadius: 1.2,
-                /* backgroundcolor under revision*/ 
-                backgroundColor: theme.palette.mode === "light" ? "white" : theme.palette.background.default,
             }}
             p={2}
         >
@@ -123,13 +121,13 @@ const Chats = () => {
     return (
         <Box sx={{
             position: "relative",
-            width: 320,
-            backgroundColor: theme.palette.mode === "light" ? "#FFE6E6" :theme.palette.background.paper,
+            width: 305,
+            backgroundColor: theme.palette.mode === "light" ? "#FFE6E6" : theme.palette.background.paper,
             boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)"
         }}>
 
             <Stack
-                p={3} spacing={2} sx={{height: "100vh"}}>
+                p={3} spacing={2} sx={{ height: "100vh" }}>
                 <Stack direction="row"
                     alignItems={"center"}
                     justifyContent={"space-between"}>
@@ -163,27 +161,33 @@ const Chats = () => {
                     </Stack>
                     <Divider />
                 </Stack>
-                <Stack spacing={2} direction="column" sx={{flexGrow: 1, overflow: "scroll", height: "100%"}}>
+                <Stack 
+                    spacing={2}
+                    direction="column"
+                    sx={{ flexGrow: 1, overflow: "scroll", height: "100%" }}>
                     <SimpleBarStyle timeout={500} clickOnTrack={false}>
 
-                    <Stack spacing={2.4}>
-                        <Typography variant="substitle2" sx={{ color: "676767" }}>
-                            Pinned
-                        </Typography>
-                        {ChatList.filter((el) => el.pinned).map((el) => {
-                            
-                            return <ChatElement {...el} />
-                        })}
-                    </Stack>
-                    <Stack spacing={2.4}>
-                        <Typography variant="substitle2" sx={{ color: "676767" }}>
-                            All Chats
-                        </Typography>
-                        {ChatList.filter((el) => !el.pinned).map((el) => {
-                            
-                            return <ChatElement {...el} />
-                        })}
-                    </Stack>
+                        <Stack spacing={2.4}>
+                            <Typography variant="subtitle2" sx={{ color: "676767" }}>
+                                Pinned
+                            </Typography>
+                            {ChatList.filter((el) => el.pinned).map((el) => {
+
+                                return <ChatElement {...el} />
+                            })}
+                        </Stack>
+
+                        <Stack spacing={2.4} mt={2}>
+                            <Typography variant="subtitle2" sx={{ color: "676767" }}>
+                                All Chats
+                            </Typography>
+                            {ChatList.filter((el) => !el.pinned).map((el) => {
+
+                                return <ChatElement {...el} />
+                            })}
+                        </Stack>
+
+                        
                     </SimpleBarStyle>
 
                 </Stack>
