@@ -1,8 +1,16 @@
 import React from 'react';
 import { faker } from '@faker-js/faker';
-import { Box, Stack, Avatar, Badge, Typography, IconButton, Divider } from '@mui/material';
-import { styled } from "@mui/material/styles";
-import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react';
+import { Box, Stack, Avatar, Badge, Typography, IconButton, Divider, TextField, InputAdornment } from '@mui/material';
+import { styled, useTheme } from "@mui/material/styles";
+import { CaretDown, LinkSimple, MagnifyingGlass, PaperPlaneTilt, Phone, SmileySticker, VideoCamera } from 'phosphor-react';
+
+const StyledInput = styled(TextField)(({ theme }) => ({
+    "& .MuiInputBase-input": {
+        paddingTop: "12px",
+        paddingBottom: "12px",
+
+    }
+}));
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -34,18 +42,20 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const Conversation = () => {
+    const theme = useTheme();
     return (
         <Stack height={"100%"} maxHeight={"100vh"} width={"auto"}>
             {/* Chat Header */}
             <Box
                 sx={{
                     width: "100%",
-                    backgroundColor: "white",
+                    backgroundColor: theme.palette.mode === 'light' ? '#FFFFFF': theme.palette.background.default,
                     boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    padding: 2
+                    padding: 2,
+
                 }}
             >
                 <Stack direction="row" spacing={2} alignItems="center">
@@ -83,20 +93,46 @@ const Conversation = () => {
             </Box>
 
             {/* Msg */}
-            <Box width={"100%"} sx={{ flexGrow: 1, backgroundColor: "#f0f0f0" }}>
+            <Box width={"100%"} sx={{ flexGrow: 1 }}>
                 {/* Message content goes here */}
             </Box>
 
             {/* Chat Footer */}
             <Box
+                p={2}
                 sx={{
-                    height: 100,
                     width: "100%",
-                    backgroundColor: "white",
+                    backgroundColor: theme.palette.mode === 'light' ? '#F2F0F0': theme.palette.background.default,
                     boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
                 }}
             >
                 {/* Footer content goes here */}
+                <Stack direction="row" alignItems={"center"} spacing={3}>
+                    <StyledInput fullWidth placeholder="Message..." variant="filled" InputProps={{
+                        disableUnderline: true,
+                        startAdornment: <InputAdornment>
+                            <IconButton>
+                                <LinkSimple />
+                            </IconButton>
+                        </InputAdornment>,
+                        endAdornment: <InputAdornment>
+                            <IconButton>
+                                <SmileySticker />
+                            </IconButton>
+                        </InputAdornment>,
+                    }} />
+                    <Box sx={{ height: "48px", width: "48px", backgroundColor: theme.palette.primary.main, borderRadius: 1.5, }}>
+                        <Stack sx={{height:"100%", width:"100%"}} alignItems="center" justifyContent="center">
+                            <IconButton >
+                                <PaperPlaneTilt color='white'/>
+                            </IconButton>
+
+                        </Stack>
+
+                    </Box>
+
+                </Stack>
+
             </Box>
         </Stack>
     );
